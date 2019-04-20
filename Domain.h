@@ -15,6 +15,8 @@ private:
     string trailerLink;
 //The declaration of all the public variables,setters and getters
 public:
+    Movie();
+    Movie(string t,string g,int y,int numL,string trailer);
     string getTitle();
     string getGen();
     int getYear();
