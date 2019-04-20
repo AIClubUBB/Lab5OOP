@@ -11,11 +11,15 @@ private:
 
 public:
     ///Common methods and public variables of User and Admin
+    Controller();
     bool isInt(string val);
     int stringToInt(string val);
-    Controller();
+    bool isMovieUnique(Movie mov,vector<Movie> lista);
+    void showAllMovies(vector<Movie> lista);
     ///User Mode methods and public variables
-
+    vector<Movie> showByGenre(string gen);
+    void runSlide(vector<Movie> slide);
+    void deleteFromWL();
     ///Admin Mode methods and public variables
 
 };

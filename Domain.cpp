@@ -50,7 +50,7 @@ void Movie::setYear(int newYear)
 }
 void Movie::setLikes(int newLikes)
 {
-
+    this->numLikes=newLikes;
 }
 void Movie::setTrailer(string newTrailer)
 {

@@ -3,7 +3,7 @@
 ///Repo methods
 Repo::Repo()
 {
-
+    fillRepo();
 }
 void Repo::fillRepo()
 {
