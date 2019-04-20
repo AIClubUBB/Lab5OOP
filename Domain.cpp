@@ -2,19 +2,19 @@
 
 Movie::Movie()
 {
-    string title="";
-    string genre="";
-    int publYear=-1;
-    int numLikes=-1;
-    string trailerLink="";
+    title="";
+    genre="";
+    publYear=-1;
+    numLikes=-1;
+    trailerLink="";
 }
 Movie::Movie(string t,string g,int y,int numL,string trailer)
 {
-    string title=t;
-    string genre=g;
-    int publYear=y;
-    int numLikes=numL;
-    string trailerLink=trailer;
+    title=t;
+    genre=g;
+    publYear=y;
+    numLikes=numL;
+    trailerLink=trailer;
 }
 string Movie::getTitle()
 {

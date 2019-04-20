@@ -3,6 +3,11 @@
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
+
+/**********************************************************************************
+We have decided that what makes a movie unique is the title and the year of release
+**********************************************************************************/
+
 //The declaration of the Movie class with all its methods and attributes
 class Movie
 {

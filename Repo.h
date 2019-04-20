@@ -10,6 +10,7 @@ private:
 //The declaration of all the public variables,setters and getters
 public:
     Repo();
+    void fillRepo();
     vector<Movie> movieList;
 };
 
@@ -20,5 +21,6 @@ class watchlist
 private:
 //The declaration of all the public variables,setters and getters
 public:
-
+    vector<Movie> movieList;
+    watchList();
 };
