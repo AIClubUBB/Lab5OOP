@@ -1,10 +1,8 @@
-#include "Controller.h"
+#include "UI.h"
 
 int main() {
-    Controller contr=Controller();
-    cout<<contr.isInt("56")<<endl;
-    cout<<contr.isInt("5hx6")<<endl;
-    cout<<contr.stringToInt("56")<<endl;
+    UI ui=UI();
+    ui.run();
     /*string baseUrl;
     baseUrl="https://www.google.com/";
     string completeUrl=baseUrl;
