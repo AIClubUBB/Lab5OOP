@@ -10,8 +10,17 @@ private:
 //The declaration of all the public variables,setters and getters
 public:
     Repo();
+    Repo(vector<Movie>);
     void fillRepo();
     vector<Movie> movieList;
+    void addFilm(Movie);
+    void changeTitle(int, string);
+    void changeGenre(int, string);
+    void changeYear(int, int);
+    void changeLikes(int, int);
+    void changeTrailer(int, string);
+    void deleteFilm(int);
+
 };
 
 //The declaration of the Watchlist class with all its methods and attributes

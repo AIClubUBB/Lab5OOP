@@ -6,7 +6,10 @@ using namespace std;
 
 /**********************************************************************************
 We have decided that what makes a movie unique is the title and the year of release
+
+If another movie of identical title and release year is found genre, likes and trailer are updated
 **********************************************************************************/
+
 
 //The declaration of the Movie class with all its methods and attributes
 class Movie
@@ -32,4 +35,5 @@ public:
     void setYear(int newYear);
     void setLikes(int newLikes);
     void setTrailer(string newTrailer);
+    friend ostream& operator<<(ostream&, const Movie&);
 };

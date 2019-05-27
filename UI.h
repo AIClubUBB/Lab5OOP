@@ -7,9 +7,11 @@ class UI
 public:
     Controller contr;
     UI();
+    static void printFilms(vector<Movie>);
     void printMenuAdmin();
     void printMenuUser();
     void printMenuMain();
+    Movie readFilm();
     void userMenu();
     void adminMenu();
     void run();
