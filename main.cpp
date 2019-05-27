@@ -1,11 +1,11 @@
-#include "UI.h"
+#include "mainwindow.h"
+#include <QApplication>
 
-int main() {
-    UI ui=UI();
-    ui.run();
-    /*string baseUrl;
-    baseUrl="https://www.google.com/";
-    string completeUrl=baseUrl;
-    system(std::string("start " + completeUrl).c_str());*/
-	return 0;
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+
+    return a.exec();
 }
