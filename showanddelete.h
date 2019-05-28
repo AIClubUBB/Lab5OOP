@@ -2,6 +2,7 @@
 #define SHOWANDDELETE_H
 
 #include <QDialog>
+#include "datamodel.h"
 
 namespace Ui {
 class ShowandDelete;
@@ -18,8 +19,11 @@ public:
 private slots:
     void on_BackButton_clicked();
 
+    void on_DeleteButton_clicked();
+
 private:
     Ui::ShowandDelete *ui;
+    DataModel *data_model;
 };
 
 #endif // SHOWANDDELETE_H

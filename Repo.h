@@ -31,5 +31,6 @@ private:
 //The declaration of all the public variables,setters and getters
 public:
     vector<Movie> movieList;
-    watchList();
+    watchlist();
+    ~watchlist();
 };

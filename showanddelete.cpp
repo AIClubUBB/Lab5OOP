@@ -7,6 +7,8 @@ ShowandDelete::ShowandDelete(QWidget *parent) :
     ui(new Ui::ShowandDelete)
 {
     ui->setupUi(this);
+    data_model = new DataModel(this);
+    ui->listView->setModel(data_model);
 }
 
 ShowandDelete::~ShowandDelete()
@@ -19,4 +21,11 @@ void ShowandDelete::on_BackButton_clicked()
     UserMenu *user=new UserMenu(this);
     user->show();
     hide();
+}
+
+
+void ShowandDelete::on_DeleteButton_clicked()
+{
+    int index = ui->listView->selectionModel()->selectedIndexes().first().row();
+    data_model->remove_data(index);
 }

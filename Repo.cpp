@@ -114,7 +114,7 @@ void Repo::deleteFilm(int index)
 }
 
 ///Watch list methods
-watchlist::watchList()
+watchlist::watchlist()
 {
 
 }
