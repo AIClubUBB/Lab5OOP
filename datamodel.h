@@ -11,6 +11,7 @@ class DataModel: public QAbstractListModel
 {
 private:
     watchlist WL;
+    vector<Movie> aux;
 public:
     DataModel(QObject *parent) : QAbstractListModel(parent)
     {

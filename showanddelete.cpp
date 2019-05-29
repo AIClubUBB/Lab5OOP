@@ -1,6 +1,10 @@
 #include "showanddelete.h"
 #include "ui_showanddelete.h"
 #include "usermenu.h"
+#include <QStringListModel>
+#include <QStringList>
+#include <QString>
+#include "datamodel.h"
 
 ShowandDelete::ShowandDelete(QWidget *parent) :
     QDialog(parent),

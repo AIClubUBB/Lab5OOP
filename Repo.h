@@ -1,6 +1,7 @@
 #pragma once
 #include "Domain.h"
 #include <vector>
+#include <fstream>
 
 //The declaration of the Repo class with all its methods and attributes
 class Repo
@@ -20,7 +21,8 @@ public:
     void changeLikes(int, int);
     void changeTrailer(int, string);
     void deleteFilm(int);
-
+    void readFromFileFilm();
+    void writeToFileFilm();
 };
 
 //The declaration of the Watchlist class with all its methods and attributes
@@ -31,6 +33,7 @@ private:
 //The declaration of all the public variables,setters and getters
 public:
     vector<Movie> movieList;
+    void readFromFileUser();
+    void writeToFileUser();
     watchlist();
-    ~watchlist();
 };

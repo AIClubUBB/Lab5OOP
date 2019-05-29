@@ -25,16 +25,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        Controller.cpp \
+        Domain.cpp \
+        Repo.cpp \
         add2wlinterface.cpp \
         adminmenu.cpp \
+        datamodel.cpp \
+        datamodeladd.cpp \
         main.cpp \
         mainwindow.cpp \
         showanddelete.cpp \
         usermenu.cpp
 
 HEADERS += \
+        Controller.h \
+        Domain.h \
+        Repo.h \
         add2wlinterface.h \
         adminmenu.h \
+        datamodel.h \
+        datamodeladd.h \
         mainwindow.h \
         showanddelete.h \
         usermenu.h
@@ -50,3 +60,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    Films.txt \
+    Watchlist.txt

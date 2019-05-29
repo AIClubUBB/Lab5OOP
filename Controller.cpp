@@ -186,6 +186,7 @@ void Controller::deleteFromWL()
             string na=WL.movieList[val].getTitle();
             int year=WL.movieList[val].getYear();
             WL.movieList.erase(WL.movieList.begin()+val);
+            WL.writeToFileUser();
             cout<<"The movie was successfully deleted from your watch list"<<endl;
             cout<<"Would you like rate the movie?[y/n]"<<endl;
             cin>>s;
@@ -288,6 +289,7 @@ void Controller::addFilm(Movie newFilm)
         this->repo.changeGenre(index, newFilm.getGen());
         this->repo.changeLikes(index, newFilm.getLikes());
         this->repo.changeTrailer(index, newFilm.getTrailer());
+        repo.writeToFileFilm();
     }
     else
         this->repo.addFilm(newFilm);
@@ -322,6 +324,7 @@ bool Controller::editFilm(string old_title, int old_year, string new_title, int 
         this->repo.changeGenre(index, new_genre);
         this->repo.changeLikes(index, new_likes);
         this->repo.changeTrailer(index, new_trailer);
+        repo.writeToFileFilm();
         return true;
     }
     return false;
@@ -345,6 +348,7 @@ bool Controller::deleteFilm(string title, int year)
     if(index < this->repo.movieList.size())
     {
       this->repo.deleteFilm(index);
+      repo.writeToFileFilm();
       return true;
     }
     return false;

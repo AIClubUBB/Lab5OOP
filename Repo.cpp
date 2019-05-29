@@ -1,15 +1,20 @@
+#include <QFile>
+#include <QFileInfo>
+#include <QTextStream>
 #include "Repo.h"
-
+#include <QDebug>
 ///Repo methods
 
 Repo::Repo(vector<Movie> mov_list)
 {
+    //readFromFileFilm();
     this->movieList = mov_list;
 }
 
 Repo::Repo()
 {
-    fillRepo();
+    //fillRepo();
+    readFromFileFilm();
 }
 //initializes repo
 
@@ -112,9 +117,138 @@ void Repo::deleteFilm(int index)
 {
     this->movieList.erase(this->movieList.begin() + index);
 }
-
+void Repo::readFromFileFilm()
+{
+    QString filename = "Films.txt";
+    QFile file(filename);
+    QString msg;
+    QFileDevice::FileError err = QFileDevice::NoError;
+    if(!file.open(QIODevice::ReadOnly)) {
+        msg = file.errorString();
+        err = file.error();
+        qDebug()<<msg<<endl;
+        return;
+    }
+        QTextStream in(&file);
+        string title = "";
+        string genre = "";
+        string trailer = "";
+        int year, likes;
+        movieList.clear();
+        while (!file.atEnd())
+        {
+            qDebug()<<QString("Please?");
+            QString line=file.readLine();
+            qDebug()<<line;
+            QStringList li=line.split("`");
+            title=li.at(0).toUtf8().constData();
+            genre=li.at(1).toUtf8().constData();
+            year=li.at(2).toInt();
+            likes=li.at(3).toInt();
+            trailer=li.at(4).toUtf8().constEnd();
+            movieList.push_back(Movie(title, genre, year, likes, trailer));
+        }
+        file.close();
+}
+void Repo::writeToFileFilm()
+{
+    QString filename = "Films.txt";
+    QFile file(filename);
+    QString msg;
+    QFileDevice::FileError err = QFileDevice::NoError;
+    if(!file.open(QIODevice::WriteOnly)) {
+        msg = file.errorString();
+        err = file.error();
+        qDebug()<<msg<<endl;
+        qWarning("Open fail!!");
+        return;
+    }
+        QTextStream out(&file);
+        QString qq="";
+        for(int i=0;i<movieList.size();i++)
+        {
+            qq.append(movieList[i].getTitle().c_str());
+            qq.append("`");
+            qq.append(movieList[i].getGen().c_str());
+            qq.append("`");
+            qq.append(QString(movieList[i].getYear()));
+            qq.append("`");
+            qq.append(QString(movieList[i].getLikes()));
+            qq.append("`");
+            qq.append(movieList[i].getTrailer().c_str());
+            qq.append("\n");
+        }
+        out<<qq;
+        file.close();
+}
 ///Watch list methods
 watchlist::watchlist()
 {
-
+    readFromFileUser();
+}
+void watchlist::readFromFileUser()
+{
+    QString filename = "Watchlist.txt";
+    QFile file(filename);
+    QString msg;
+    QFileDevice::FileError err = QFileDevice::NoError;
+    qDebug()<<QFileInfo("Wachlist.txt").absoluteFilePath();
+    if(!file.open(QIODevice::ReadOnly)) {
+        msg = file.errorString();
+        err = file.error();
+        qDebug()<<msg<<endl;
+        qWarning("Open fail!!");
+        return;
+    }
+        QTextStream in(&file);
+        string title = "";
+        string genre = "";
+        string trailer = "";
+        int year, likes;
+        movieList.clear();
+        while (!file.atEnd())
+        {
+            qDebug()<<QString("Please?");
+            QString line=file.readLine();
+            qDebug()<<line;
+            QStringList li=line.split("`");
+            title=li.at(0).toUtf8().constData();
+            genre=li.at(1).toUtf8().constData();
+            year=li.at(2).toInt();
+            likes=li.at(3).toInt();
+            trailer=li.at(4).toUtf8().constEnd();
+            movieList.push_back(Movie(title, genre, year, likes, trailer));
+        }
+        file.close();
+}
+void watchlist::writeToFileUser()
+{
+    QString filename = "Watchlist.txt";
+    QFile file(filename);
+    QString msg;
+    QFileDevice::FileError err = QFileDevice::NoError;
+    if(!file.open(QIODevice::WriteOnly)) {
+        msg = file.errorString();
+        err = file.error();
+        qDebug()<<msg<<endl;
+        qWarning("Open fail!!");
+        return;
+    }
+        QTextStream out(&file);
+        QString qq="";
+        for(int i=0;i<movieList.size();i++)
+        {
+            qq.append(movieList[i].getTitle().c_str());
+            qq.append("`");
+            qq.append(movieList[i].getGen().c_str());
+            qq.append("`");
+            qq.append(QString(movieList[i].getYear()));
+            qq.append("`");
+            qq.append(QString(movieList[i].getLikes()));
+            qq.append("`");
+            qq.append(movieList[i].getTrailer().c_str());
+            qq.append("\n");
+        }
+        out<<qq;
+        file.close();
 }
